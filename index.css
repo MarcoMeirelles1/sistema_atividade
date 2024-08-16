@@ -1,0 +1,185 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f7fa;
+    backdrop-filter: url(filters.svg#filter) blur(4px) saturate(150%);
+    min-height: 400px;
+    width: 100%;
+    background-image: url('https://kbase.com.br/novo/wp-content/uploads/2020/06/3.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  header {
+    color: #fff;
+    padding: 30px 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to right, #58f158, #4646f3);
+    background-size: 200% 100%;
+    animation: gradientAnimation 3s linear infinite;
+  }
+  
+  @keyframes gradientAnimation {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 0%; }
+    100% { background-position: 0% 0%; }
+  }
+  
+  header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  header nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  header nav ul li {
+    margin: 0 20px;
+  }
+  
+  header nav ul li a {
+    color: #00ff2a;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+  }
+  
+  header nav ul li a:hover {
+    color: #fffffff1;
+  }
+  
+  section {
+    padding: 40px 20px;
+    margin: 20px auto;
+    max-width: 900px;
+    background: linear-gradient(to right, #58f158, #4646f3);
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    color: #fffffff1;
+    font-size: 2rem;
+    text-align: center;
+    border-bottom: 3px solid #00ff2a;
+    display: inline-block;
+    padding-bottom: 10px;
+  }
+  
+  p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: justify;
+  }
+  
+  button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #2acc4d;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #1e6d2b;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 600px) {
+    header nav ul {
+      flex-direction: column;
+      margin-top: 20px;
+    }
+  
+    header nav ul li {
+      margin: 10px 0;
+    }
+  
+    section {
+      padding: 20px;
+      margin: 10px auto;
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+  
+  /* Section pontos de coleta */
+  #pontos-de-coleta {
+    padding: 40px 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  #pontos-de-coleta h2 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    border-bottom: 2px solid #2acc4d;
+    padding-bottom: 10px;
+  }
+  
+  #pontos-de-coleta ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; 
+    text-align: left;
+  }
+  
+  #pontos-de-coleta ul li {
+    margin-bottom: 30px;
+  }
+  
+  #pontos-de-coleta ul li a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #333;
+    background-color: #f4f4f4;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  #pontos-de-coleta ul li a:hover {
+    background-color: #1e6d2bf1;
+    color: #fff;
+  }
+  
+  /* Estilo para a seção do mapa */
+  #mapa {
+    padding: 40px 20px;
+    margin: 20px auto;
+    max-width: 900px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  #map {
+    height: 400px; /* Altura do mapa */
+    width: 100%; /* Largura do mapa */
+  }

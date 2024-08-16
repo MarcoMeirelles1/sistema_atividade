@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lixo Eletrônico</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Adicione o CSS do Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        /* Adicione um estilo básico para garantir que o mapa seja visível */
+        #map {
+            height: 500px; /* Altura do mapa */
+            width: 100%; /* Largura do mapa */
+            border: 2px solid #ccc; /* Borda para ajudar a visualizar o contorno */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>EcoTech</h1>
+        <nav>
+            <ul>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#problemas">Problemas</a></li>
+                <li><a href="#solucoes">Soluções</a></li>
+                <li><a href="#pontos-de-coleta">Coleta</a></li>
+                <li><a href="#mapa">Mapa</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="sobre">
+        <h2>O que é Lixo Eletrônico?</h2>
+        <p>O lixo eletrônico refere-se a dispositivos eletrônicos descartados que não têm mais utilidade ou valor, como celulares, computadores e televisores.</p>
+    </section>
+
+    <section id="problemas">
+        <h2>Problemas Causados pelo Lixo Eletrônico</h2>
+        <p>O descarte inadequado de eletrônicos pode liberar substâncias tóxicas no meio ambiente, prejudicando a saúde pública e contaminando o solo e a água.</p>
+    </section>
+
+    <section id="solucoes">
+        <h2>Soluções para o Lixo Eletrônico</h2>
+        <p>Reciclagem e reutilização de componentes são soluções para reduzir o impacto ambiental do lixo eletrônico. Além disso, é importante promover o descarte consciente.</p>
+    </section>
+
+    <section id="pontos-de-coleta">
+      <h2>Sites que podem ajudar:</h2>
+      <ul>
+          <li><a href="https://coletalixo.curitiba.pr.gov.br/lixo-reciclavel" target="_blank">Prefeitura de Curitiba</a></li>
+          <li><a href="https://www.curitiba.pr.gov.br/servicos/ecopontos-descarte-correto-de-residuos/716" target="_blank">Ecopontos</a></li>
+      </ul>
+    </section>
+    
+    <!-- Adicione a seção do mapa -->
+    <section id="mapa">
+        <h2>Localização dos Pontos de Coleta</h2>
+        <div id="map"></div>
+    </section>
+
+    <!-- Adicione o JavaScript do Leaflet -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // Inicializa o mapa
+        function initMap() {
+            const map = L.map('map');
+
+            // Adiciona uma camada de tiles do OpenStreetMap
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19
+            }).addTo(map);
+
+            // Definindo os pontos de coleta
+            const pontosDeColeta = [
+                {
+                    coords: [-25.4284, -49.2733],
+                    popup: 'Prefeitura de Curitiba<br>Av. Cândido de Abreu, 817'
+                },
+                {
+                    coords: [-25.4300, -49.2800],
+                    popup: 'Ecoponto Centro<br>Rua Riachuelo, 29'
+                },
+                {
+                    coords: [-25.4200, -49.2900],
+                    popup: 'Ecoponto Jardim das Américas<br>Rua Martin Afonso, 165'
+                },
+                {
+                    coords: [-25.4400, -49.3000],
+                    popup: 'Ecoponto Santa Felicidade<br>Rua Piquiri, 389'
+                }
+            ];
+
+            // Adicionando marcadores ao mapa e configurando os bounds
+            const bounds = L.latLngBounds(); // Cria um objeto LatLngBounds para armazenar os limites
+
+            pontosDeColeta.forEach(ponto => {
+                const marker = L.marker(ponto.coords).addTo(map)
+                    .bindPopup(ponto.popup);
+                
+                bounds.extend(marker.getLatLng()); // Expande os limites para incluir o marcador
+            });
+
+            map.fitBounds(bounds); // Ajusta o mapa para mostrar todos os marcadores
+        }
+
+        document.addEventListener('DOMContentLoaded', initMap);
+    </script>
+</body>
+</html>
